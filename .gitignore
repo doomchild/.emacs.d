@@ -11,4 +11,7 @@
 # Emacs backup
 *.*~
 
+# Mac stuff
+.DS_Store
+
 private/
