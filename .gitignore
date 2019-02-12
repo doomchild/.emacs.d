@@ -1,0 +1,14 @@
+# Compiled
+*.elc
+*.lib
+*.fas
+*.dat
+*.eld
+
+# Packaging
+.cask
+
+# Emacs backup
+*.*~
+
+private/
