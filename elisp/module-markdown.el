@@ -2,8 +2,14 @@
 ;;; Markdown support
 
 (use-package markdown-mode
+  :delight markdown-mode "Markdown"
   :commands (markdown-mode)
-  :mode "\\.md"
+  :mode ("CONTRIBUTORS\\'"
+	 "INSTALL\\'"
+	 "LICENSE\\'"
+	 "README\\'"
+	 "\\.markdown\\'"
+	 "\\.md\\'")
   :config (add-hook 'yas-minor-mode-on markdown-mode-hook))
 
 (provide 'module-markdown)

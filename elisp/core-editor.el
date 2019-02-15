@@ -30,6 +30,7 @@
 
 (use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
+  :hook (prog-mode . rainbow-delimiters-mode)
   :config (setq rainbow-delimiters-max-face-count 3))
 
 ;; These functions were shamelessly ripped from DOOM Emacs

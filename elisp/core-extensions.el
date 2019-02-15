@@ -13,10 +13,16 @@
   :config (setq avy-all-windows nil
 		avy-background t))
 
+(use-package csv-mode
+  :config
+  (setq-default csv-align-padding 2))
+
 (use-package diminish)
 
-(when (memq window-system '(mac ns x))
-  (use-package exec-path-from-shell)
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns x))
+  :defer 1
+  :config
   (exec-path-from-shell-initialize))
 
 (use-package multiple-cursors

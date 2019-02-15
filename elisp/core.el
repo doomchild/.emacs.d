@@ -33,6 +33,9 @@
   echo-keystrokes 0.2
   use-package-always-ensure t)
 
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 ;;; Backups
 (setq
  auto-save-default nil

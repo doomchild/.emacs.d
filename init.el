@@ -17,6 +17,8 @@
 (require 'core-flycheck)
 (require 'module-cloudformation)
 (require 'module-csharp)
+(require 'module-docker)
+(require 'module-html)
 (require 'module-lisp)
 (require 'module-markdown)
 (require 'module-yaml)
