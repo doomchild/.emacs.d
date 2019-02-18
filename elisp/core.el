@@ -36,6 +36,8 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(defun package--save-selected-packages (&rest opt) nil)
+
 ;;; Backups
 (setq
  auto-save-default nil

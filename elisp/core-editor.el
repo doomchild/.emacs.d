@@ -33,6 +33,11 @@
   :hook (prog-mode . rainbow-delimiters-mode)
   :config (setq rainbow-delimiters-max-face-count 3))
 
+(use-package treemacs
+  :custom
+  (treemacs-git-mode 'deferred)
+  (treemacs-persist-file (expand-file-name "treemacs-persist" private-directory)))
+
 ;; These functions were shamelessly ripped from DOOM Emacs
 (defun dc/yas-goto-start-of-field ()
   "Go to the beginning of a field"
