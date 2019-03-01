@@ -19,6 +19,7 @@
 (require 'module-csharp)
 (require 'module-docker)
 (require 'module-html)
+(require 'module-javascript)
 (require 'module-lisp)
 (require 'module-markdown)
 (require 'module-yaml)
