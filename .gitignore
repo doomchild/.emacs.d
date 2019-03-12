@@ -18,3 +18,4 @@ auto-save-list/
 elpa/
 private/
 .cache/
+custom.el
