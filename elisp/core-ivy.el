@@ -16,6 +16,7 @@
 (use-package smex
   :custom (smex-save-file (format "%s/smex-items" private-directory)))
 
-(use-package swiper)
+(use-package swiper
+  :bind (("C-s" . swiper)))
 
 (provide 'core-ivy)
