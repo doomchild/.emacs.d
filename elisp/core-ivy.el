@@ -4,6 +4,7 @@
 (use-package ivy
   :demand t
   :diminish ivy-mode
+  :bind (("<C-S-return>" . ivy-immediate-done))
   :config (ivy-mode 1))
 
 (use-package counsel
