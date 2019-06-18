@@ -22,6 +22,7 @@
 (require 'module-javascript)
 (require 'module-lisp)
 (require 'module-markdown)
+(require 'module-python)
 (require 'module-yaml)
 
 (let ((elapsed (float-time (time-subtract (current-time) emacs-start-time))))
