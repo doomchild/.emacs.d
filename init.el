@@ -24,6 +24,7 @@
 (require 'module-markdown)
 (require 'module-python)
 (require 'module-yaml)
+(require 'module-xml)
 
 (let ((elapsed (float-time (time-subtract (current-time) emacs-start-time))))
   (message "Loaded configuration in %.3fs" elapsed))
