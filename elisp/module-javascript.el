@@ -1,13 +1,43 @@
 ;;; -*- lexical-binding: t; -*-
-;;; C#
+;;; Javascript and JSON
 
-(use-package js2-mode
-  :mode "\\.js$")
+(use-package js-doc
+  :demand t)
+
+(use-package js2-refactor
+  :demand t
+  :config
+  (js2r-add-keybindings-with-prefix "C-; C-r"))
+
+(use-package xref-js2
+  :demand t)
 
 (use-package json-mode
   :mode "\\.json$")
 
-(defun minify-buffer-contents()
+(defun dc/js2-mode-hook ()
+  (js2-refactor-mode)
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
+  (tern-mode)
+  (company-mode)
+  (editorconfig-mode 1))
+
+(use-package js2-mode
+  :mode "\\.js$"
+  :after (js-doc js2-refactor xref-js2)
+  :bind (:map js2-mode-map
+          ("\C-ci" . js-doc-insert-function-doc)
+          ("@" . js-doc-insert-tag)
+          ("C-k" . js2r-kill)
+          :map js-mode-map
+          ("M-." . nil))
+  :config
+  (setq js-switch-indent-offset 2)
+  (setq tern-command (append tern-command '("--no-port-file")))
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  (add-hook 'js2-mode-hook #'dc/js2-mode-hook))
+
+(defun dc/minify-js-buffer-contents()
   "Minifies the buffer contents by removing whitespaces."
   (interactive)
   (delete-whitespace-rectangle (point-min) (point-max))
@@ -15,8 +45,8 @@
   (goto-char (point-min))
   (while (search-forward "\n" nil t) (replace-match "" nil t)))
 
-(defun json-to-single-line (beg end)
-  "Collapse prettified json in region between BEG and END to a single line"
+(defun dc/json-to-single-line (beg end)
+  "Collapse prettified json in region between BEG and END to a single line."
   (interactive "r")
   (if (use-region-p)
       (save-excursion
@@ -28,3 +58,5 @@
     (print "This function operates on a region")))
 
 (provide 'module-javascript)
+
+;;; module-javascript.el ends here

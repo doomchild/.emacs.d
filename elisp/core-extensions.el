@@ -21,7 +21,7 @@
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
-  :defer 1
+  :demand t
   :config
   (exec-path-from-shell-initialize))
 
