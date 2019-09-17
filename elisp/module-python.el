@@ -8,6 +8,12 @@
   :init
   (add-hook 'python-mode-hook 'flycheck-mode))
 
+(use-package python-black
+  :demand t
+  :after python
+  :init
+  (setq python-black-on-save-mode t))
+
 (use-package anaconda-mode
   :after python
   :init
