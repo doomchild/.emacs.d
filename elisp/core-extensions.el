@@ -9,9 +9,15 @@
 (use-package avy
   :commands (avy-goto-char avy-goto-line)
   :bind (("C-; c" . avy-goto-char)
-         ("C-; l" . avy-goto-line))
+          ("C-; l" . avy-goto-line))
   :config (setq avy-all-windows nil
-		avy-background t))
+            avy-background t))
+
+(use-package awscli-capf
+  :ensure t
+  :commands (awscli-capf-add)
+  :hook ((sh-mode . awscli-capf-add)
+          (shell-mode . awscli-capf-add)))
 
 (use-package csv-mode
   :config
@@ -27,9 +33,9 @@
 
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
-	 ("C->" . mc/mark-next-like-this)
-	 ("C-<" . mc/mark-previous-like-this)
-	 ("C-c C->" . mc/mark-all-like-this))
+          ("C->" . mc/mark-next-like-this)
+          ("C-<" . mc/mark-previous-like-this)
+          ("C-c C->" . mc/mark-all-like-this))
   :config (setq mc/lists-file (expand-file-name ".mc-lists.el" private-directory)))
 
 (use-package popup-kill-ring
