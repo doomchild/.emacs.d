@@ -22,4 +22,7 @@
 (defun package--saved-selected-packages (&option VALUE opt)
   nil)
 
+(use-package s
+  :demand t)
+
 (provide 'core-package)
