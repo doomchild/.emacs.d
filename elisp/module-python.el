@@ -6,7 +6,8 @@
   :interpreter ("python3" . python-mode)
   :commands python-mode
   :init
-  (add-hook 'python-mode-hook 'flycheck-mode))
+  (add-hook 'python-mode-hook 'flycheck-mode)
+  (setq python-shell-interpreter "python3"))
 
 (use-package python-black
   :demand t
