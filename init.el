@@ -6,7 +6,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
 (require 'core)
-(require 'core-permissions)
+;(require 'core-permissions)
 (require 'core-package)
 (require 'core-extensions)
 (require 'core-font)
