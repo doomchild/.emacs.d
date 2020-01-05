@@ -17,6 +17,13 @@ inserted."
             (setq this-command 'company-complete-common)))
       (completion-at-point)))
 
+;taken from https://github.com/company-mode/company-mode/issues/614#issuecomment-261835950
+(defun dc/company-stop-input-and-space ()
+  "Stop completing and input a space,a workaround of a semantic issue `https://github.com/company-mode/company-mode/issues/614'"
+  (interactive)
+  (company-abort)
+  (insert " "))
+
 (use-package company-tern
   :demand t
   :bind (:map tern-mode-keymap
@@ -32,10 +39,11 @@ inserted."
   :bind (:map company-active-map
           ("C-n" . company-select-next)
           ("C-p" . company-select-previous)
-          ("<tab>" . dc/company-complete))
+          ("<tab>" . dc/company-complete)
+	  ("<space>" . dc/company-stop-input-and-space))
   :config
   (setq company-dabbrev-downcase nil)
-  (setq company-idle-delay 0.01)
+  (setq company-idle-delay 0.2)
   (setq company-backends (delete 'company-semantic company-backends))
   (add-to-list 'company-backends 'company-c-headers)
   (add-to-list 'company-backends 'company-omnisharp)
