@@ -24,6 +24,8 @@
 (global-semanticdb-minor-mode 1)
 (global-semantic-idle-scheduler-mode 1)
 
+(setq c-default-style "bsd")
+
 (semantic-mode 1)
 
 (provide 'module-c++)

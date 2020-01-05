@@ -21,3 +21,5 @@ private/
 custom.el
 .mc-lists.el
 tramp
+eshell
+semanticdb
