@@ -23,6 +23,11 @@ inserted."
           ("M-." . nil)
           ("M-," . nil)))
 
+(use-package company-c-headers
+  :demand t
+  :config
+  (add-to-list 'company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/4.2.1"))
+
 (use-package company
   :bind (:map company-active-map
           ("C-n" . company-select-next)
@@ -31,7 +36,10 @@ inserted."
   :config
   (setq company-dabbrev-downcase nil)
   (setq company-idle-delay 0.01)
+  (setq company-backends (delete 'company-semantic company-backends))
+  (add-to-list 'company-backends 'company-c-headers)
   (add-to-list 'company-backends 'company-omnisharp)
-  (add-hook 'csharp-mode-hook 'company-mode))
+  (add-hook 'csharp-mode-hook 'company-mode)
+  (add-hook 'c-mode-common-hook 'company-mode))
 
 (provide 'core-company)

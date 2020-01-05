@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: use-package-map-entry
+# key: bind
+# condition: (eq major-mode 'emacs-lisp-mode)
+# --
+($1 . $2)$0

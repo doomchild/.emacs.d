@@ -85,8 +85,14 @@
 	yas-also-auto-indent-first-line t
 	yas-snippet-dirs (list (concat user-emacs-directory "snippets")))
 
-  (add-hook 'yas-minor-mode-on text-mode-hook)
-  (add-hook 'yas-minor-mode-on prog-mode-hook)
+  (yas-global-mode 1)
+
+  (add-hook 'emacs-lisp-mode-hook
+	    (let ((original-action (lookup-key emacs-lisp-mode-map [tab])))
+	     `(lambda ()
+	        (setq yas/fallback-behavior
+		      '(apply ,original-action))
+	        (local-set-key [tab] 'yas-expand))))
 
   :bind (:map yas-keymap
 	      ("C-e" . dc/yas-goto-end-of-field)
