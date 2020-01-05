@@ -6,6 +6,7 @@
     (ggtags-mode 1)))
 
 (use-package ggtags
+  :demand t
   :bind (:map ggtags-mode-map
 	      ("C-c g s" . 'ggtags-find-other-symbol)
 	      ("C-c g h" . 'ggtags-view-tag-history)
@@ -14,7 +15,7 @@
 	      ("C-c g c" . 'ggtags-create-tags)
 	      ("C-c g u" . 'ggtags-update-tags)
 	      ("M-," . 'pop-tag-mark))
-  :init
+  :config
   (add-hook 'c-mode-common-hook #'c++-mode-ggtags-hook)
   (setq-local imenu-create-index-function #'ggtags-build-imenu-index))
 
