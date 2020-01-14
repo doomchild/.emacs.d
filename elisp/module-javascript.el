@@ -20,6 +20,7 @@
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
   (tern-mode)
   (company-mode)
+  (electric-pair-mode)
   (editorconfig-mode 1))
 
 (use-package js2-mode
