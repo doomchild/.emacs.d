@@ -25,4 +25,7 @@
 (use-package s
   :demand t)
 
+(use-package f
+  :demand t)
+
 (provide 'core-package)
