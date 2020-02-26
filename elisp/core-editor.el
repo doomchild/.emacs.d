@@ -22,6 +22,13 @@
   (setq linum-format " %3d ")
   (global-linum-mode nil))
 
+(use-package origami
+  :bind (:map origami-mode-map
+	      ("C-; C-o t" . origami-recursively-toggle-node)
+	      ("C-; C-o o" . origami-show-only-node)
+	      ("C-; C-o r" . origami-reset))
+  :hook ((prog-mode . origami-mode)))
+
 (use-package projectile
   :custom
   (projectile-completion-system 'ivy)
