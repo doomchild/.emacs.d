@@ -22,6 +22,9 @@
 (defun package--saved-selected-packages (&option VALUE opt)
   nil)
 
+(use-package dash
+  :demand t)
+
 (use-package s
   :demand t)
 
