@@ -12,4 +12,6 @@
     (nxml-mode)
     (auto-fill-mode fill)))
 
+(setq nxml-slash-auto-complete-flag t)
+
 (provide 'module-xml)
