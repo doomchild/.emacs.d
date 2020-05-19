@@ -1,6 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 ;;; Core editor packages
 
+;; It's really irritating to select something only to have it not overwrite the region
+(delete-selection-mode t)
+
 (use-package editorconfig
   :mode ("\\.?editorconfig$" . editorconfig-conf-mode)
   :config
