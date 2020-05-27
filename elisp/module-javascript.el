@@ -27,6 +27,8 @@
   :mode "\\.js$"
   :after (js-doc js2-refactor xref-js2)
   :bind (:map js2-mode-map
+	  ("<tab>"  . js2-indent-bounce)
+	  ("<backtab>" . js2-indent-bounce-backward)
           ("\C-ci" . js-doc-insert-function-doc)
           ("@" . js-doc-insert-tag)
           ("C-k" . js2r-kill)
