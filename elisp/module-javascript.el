@@ -33,6 +33,7 @@
           :map js-mode-map
           ("M-." . nil))
   :config
+  (setq js2-basic-offset 2)
   (setq js-switch-indent-offset 2)
   (setq tern-command (append tern-command '("--no-port-file")))
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
