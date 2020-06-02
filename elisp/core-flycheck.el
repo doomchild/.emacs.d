@@ -1,6 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 ;;; Flycheck=
 
+(defun dc/shell-command-to-string (&rest cmd)
+  (replace-regexp-in-string
+   "\r?\n$"
+   ""
+   (shell-command-to-string (mapconcat 'identity cmd " "))))
+
 (use-package flycheck
   :demand t
   :config
@@ -13,12 +19,6 @@
   (setq-default flycheck-disabled-checkers
     (append flycheck-disabled-checkers
       '(javascript-jshint json-jsonlist))))
-
-(defun dc/shell-command-to-string (&rest cmd)
-  (replace-regexp-in-string
-   "\r?\n$"
-   ""
-   (shell-command-to-string (mapconcat 'identity cmd " "))))
 
 (eval-after-load 'flycheck
   (setq
