@@ -4,7 +4,7 @@
 (use-package flycheck
   :demand t
   :config
-  (setq flycheck-javascript-eslint-executable "~/.nvm/versions/node/v10.15.3/bin/eslint")
+  (setq flycheck-javascript-eslint-executable (dc/shell-command-to-string "which eslint"))
   (add-hook 'csharp-mode-hook 'flycheck-mode)
   (add-hook 'markdown-mode-hook 'flycheck-mode)
   (add-hook 'yaml-mode-hook 'flycheck-mode)
