@@ -4,6 +4,9 @@
 ;; It's really irritating to select something only to have it not overwrite the region
 (delete-selection-mode t)
 
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
 (use-package editorconfig
   :mode ("\\.?editorconfig$" . editorconfig-conf-mode)
   :config
