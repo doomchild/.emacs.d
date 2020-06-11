@@ -1,6 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 ;;; Javascript and JSON
 
+(use-package add-node-modules-path
+  :demand t)
+
 (use-package js-doc
   :demand t)
 
@@ -16,6 +19,7 @@
   :mode "\\.json$")
 
 (defun dc/js2-mode-hook ()
+  (add-hook 'js-mode-hook #'add-node-modules-path)
   (js2-refactor-mode)
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
   (tern-mode)
