@@ -42,7 +42,6 @@
   (setq js-switch-indent-offset 2)
   (setq js2-basic-offset 2)
   (setq js2-bounce-indent-p t)
-  (setq tern-command (append tern-command '("--no-port-file")))
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   (add-hook 'js2-mode-hook #'dc/js2-mode-hook))
 

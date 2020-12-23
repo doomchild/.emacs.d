@@ -24,12 +24,6 @@ inserted."
   (company-abort)
   (insert " "))
 
-(use-package company-tern
-  :demand t
-  :bind (:map tern-mode-keymap
-          ("M-." . nil)
-          ("M-," . nil)))
-
 (use-package company-c-headers
   :demand t
   :config
