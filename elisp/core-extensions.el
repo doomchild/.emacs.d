@@ -38,6 +38,26 @@
           ("C-c C->" . mc/mark-all-like-this))
   :config (setq mc/lists-file (expand-file-name ".mc-lists.el" private-directory)))
 
+; taken from https://oremacs.com/2015/10/14/swiper-mc/
+(defun swiper-mc ()
+  (interactive)
+  (unless (require 'multiple-cursors nil t)
+    (error "multiple-cursors isn't installed"))
+  (let ((cands (nreverse ivy--old-cands)))
+    (unless (string= ivy-text "")
+      (ivy-set-action
+       (lambda (_)
+         (let (cand)
+           (while (setq cand (pop cands))
+             (swiper--action cand)
+             (when cands
+               (mc/create-fake-cursor-at-point))))
+         (mc/maybe-multiple-cursors-mode)))
+      (setq ivy-exit 'done)
+      (exit-minibuffer))))
+
+(global-set-key (kbd "C-&") 'swiper-mc)
+
 (use-package popup-kill-ring
   :bind ("M-y" . popup-kill-ring))
 
