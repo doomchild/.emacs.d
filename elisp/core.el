@@ -14,7 +14,8 @@
 (set-keyboard-coding-system 'utf-8)
 (setq
   locale-coding-system 'utf-8
-  default-process-coding-system '(utf-8-unix . utf-8-unix))
+  default-process-coding-system '(utf-8-unix . utf-8-unix)
+  default-directory "~")
 
 ;;; Emacs customizations
 (setq
