@@ -5,4 +5,6 @@
   :delight dockerfile-mode "Dockerfile"
   :mode "Dockerfile\\'")
 
+(use-package docker-compose-mode)
+
 (provide 'module-docker)
