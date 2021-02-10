@@ -26,3 +26,4 @@ custom.el
 .mc-lists.el
 tramp
 semanticdb
+url/
