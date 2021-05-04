@@ -31,12 +31,18 @@
   :config
   (exec-path-from-shell-initialize))
 
+(use-package ht
+  :demand t)
+
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
           ("C->" . mc/mark-next-like-this)
           ("C-<" . mc/mark-previous-like-this)
           ("C-c C->" . mc/mark-all-like-this))
   :config (setq mc/lists-file (expand-file-name ".mc-lists.el" private-directory)))
+
+(use-package s
+  :demand t)
 
 ; taken from https://oremacs.com/2015/10/14/swiper-mc/
 (defun swiper-mc ()
