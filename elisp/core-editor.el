@@ -7,6 +7,9 @@
 ;; No tabs.  EVER.
 (setq-default indent-tabs-mode nil)
 
+;; The most common kind of buffer I open is one for JSON manipulation, so that's the default buffer mode.
+(setq-default major-mode 'json-mode)
+
 (require 're-builder)
 (setq reb-re-syntax 'string)
 
