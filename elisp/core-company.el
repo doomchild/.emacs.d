@@ -40,7 +40,6 @@ inserted."
   (setq company-idle-delay 0.2)
   (setq company-backends (delete 'company-semantic company-backends))
   (add-to-list 'company-backends 'company-c-headers)
-  (add-to-list 'company-backends 'company-omnisharp)
   (add-hook 'csharp-mode-hook 'company-mode)
   (add-hook 'c-mode-common-hook 'company-mode))
 
