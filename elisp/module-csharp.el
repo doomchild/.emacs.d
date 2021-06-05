@@ -5,11 +5,9 @@
   :demand t
   :mode "\\.cs$")
 
-(use-package omnisharp
-  :bind (:map omnisharp-mode-map
-	      ("." . omnisharp-add-dot-and-auto-complete))
-  :config
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
-  (add-to-list 'company-backends 'company-omnisharp))
+(setq
+ lsp-csharp-omnisharp-roslyn-store-path (format "%s/download/omnisharp-roslyn.zip" private-directory)
+ lsp-csharp-omnisharp-roslyn-server-dir (format "%s/lsp/omnisharp-roslyn/latest/omnisharp-roslyn" private-directory)
+ lsp-csharp-server-install-dir (format "%s/lsp/omnisharp-roslyn" private-directory))
 
 (provide 'module-csharp)

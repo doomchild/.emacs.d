@@ -34,6 +34,12 @@
   (setq linum-format " %3d ")
   (global-linum-mode nil))
 
+(use-package lsp-mode
+  :config
+  (setq lsp-session-file (format "%s/lsp-session" temporary-directory)))
+
+(use-package lsp-ui)
+
 (use-package origami
   :bind (:map origami-mode-map
 	      ("C-; C-o t" . origami-recursively-toggle-node)
