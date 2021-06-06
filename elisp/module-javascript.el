@@ -22,10 +22,10 @@
   (add-hook 'js-mode-hook #'add-node-modules-path)
   (js2-refactor-mode)
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
-  (tern-mode)
   (company-mode)
   (electric-pair-mode)
-  (editorconfig-mode 1))
+  (editorconfig-mode 1)
+  (lsp))
 
 (use-package js2-mode
   :mode "\\.js$"
