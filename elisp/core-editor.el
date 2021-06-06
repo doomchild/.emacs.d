@@ -48,10 +48,13 @@
   :hook ((prog-mode . origami-mode)))
 
 (use-package projectile
+  :bind (:map projectile-mode-map
+              ("C-; p" . projectile-command-map))
   :custom
   (projectile-completion-system 'ivy)
   (projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temporary-directory))
-  (projectile-project-search-path "~/code/insight"))
+  (projectile-project-search-path '("~/code"))
+  :hook ((prog-mode . projectile-mode)))
 
 (use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
