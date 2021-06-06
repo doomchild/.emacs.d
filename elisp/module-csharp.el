@@ -1,14 +1,11 @@
 ;;; -*- lexical-binding: t; -*-
 ;;; C#
 
-(defun dc/csharp-mode-hook ()
-  (lsp))
-
 (use-package csharp-mode
   :demand t
   :mode "\\.cs$"
   :config
-  (add-hook 'csharp-mode-hook #'dc/csharp-mode-hook))
+  (add-hook 'csharp-mode-hook #'lsp))
 
 (setq
  lsp-csharp-omnisharp-roslyn-store-path (format "%s/download/omnisharp-roslyn.zip" private-directory)
