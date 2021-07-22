@@ -15,8 +15,15 @@
 (use-package xref-js2
   :demand t)
 
+(defun dc/json-mode-hook ()
+  (electric-pair-mode)
+  (editorconfig-mode 1)
+  (editorconfig-apply))
+
 (use-package json-mode
-  :mode "\\.json$")
+  :mode "\\.json$"
+  :config
+  (add-hook 'json-mode-hook #'dc/json-mode-hook))
 
 (defun dc/js2-mode-hook ()
   (add-hook 'js-mode-hook #'add-node-modules-path)
@@ -29,7 +36,7 @@
 
 (use-package js2-mode
   :mode "\\.js$"
-  :after (js-doc js2-refactor xref-js2)
+  :after (js-doc js2-refactor xref-js2 lsp)
   :bind (:map js2-mode-map
 	  ("<tab>"  . js2-indent-bounce)
 	  ("<backtab>" . js2-indent-bounce-backward)
@@ -42,6 +49,7 @@
   (setq js-switch-indent-offset 2)
   (setq js2-basic-offset 2)
   (setq js2-bounce-indent-p t)
+  (setq lsp-eslint-library-choices-file (format "%s/.lsp-eslint-choices" temporary-directory))
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   (add-hook 'js2-mode-hook #'dc/js2-mode-hook))
 
