@@ -33,11 +33,17 @@
   :ensure t
   :config
   (setq indy-rules '(
-                     (js2-mode . ((and (indy--current 'indy--starts-with ".")
-                                       (not (indy--prev 'indy-starts-with "." )))
-                                  (indy--prev-tab 1)))
-                     )
-        ))
+                     (js2-mode . (
+                                  ((and (indy--current 'indy--starts-with ".")
+                                        (not (indy--prev 'indy-starts-with "." )))
+                                   (indy--prev-tab 1))
+                                  ((and (indy--prev 'indy--ends-with "(")
+                                        (indy-current 'indy--starts-with "{"))
+                                   (indy--prev-tab 0))
+                                  )
+                      )
+                     ))
+  )
 
 (use-package linum
   :config
