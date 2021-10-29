@@ -32,6 +32,7 @@
   (company-mode)
   (electric-pair-mode)
   (editorconfig-mode 1)
+  (editorconfig-apply)
   (lsp))
 
 (use-package js2-mode
@@ -46,12 +47,46 @@
           :map js-mode-map
           ("M-." . nil))
   :config
+  (setq js-indent-level 2)
   (setq js-switch-indent-offset 2)
   (setq js2-basic-offset 2)
   (setq js2-bounce-indent-p t)
   (setq lsp-eslint-library-choices-file (format "%s/.lsp-eslint-choices" temporary-directory))
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   (add-hook 'js2-mode-hook #'dc/js2-mode-hook))
+
+(defun dc/js--multi-line-declaration-indentation ()
+  "Helper function for `js--proper-indentation'.
+Return the proper indentation of the current line if it belongs to a declaration
+statement spanning multiple lines; otherwise, return nil."
+  (let (forward-sexp-function ; Use Lisp version.
+        at-opening-bracket)
+    (save-excursion
+      (back-to-indentation)
+        (let ((pt (point)))
+          (when (looking-at js--indent-operator-re)
+            (goto-char (match-end 0)))
+          ;; The "operator" is probably a regexp literal opener.
+          (when (nth 3 (syntax-ppss))
+            (goto-char pt)))
+        (while (and (not at-opening-bracket)
+                    (not (bobp))
+                    (let ((pos (point)))
+                      (save-excursion
+                        (js--backward-syntactic-ws)
+                        (or (eq (char-before) ?,)
+                            (and (not (eq (char-before) ?\;))
+                                 (prog2
+                                     (skip-syntax-backward ".")
+                                     (looking-at js--indent-operator-re)
+                                   (js--backward-syntactic-ws))
+                                 (not (eq (char-before) ?\;)))
+                            (js--same-line pos)))))
+          (condition-case nil
+              (backward-sexp)
+            (scan-error (setq at-opening-bracket t)))))))
+
+(advice-add 'js--multi-line-declaration-indentation :override #'dc/js--multi-line-declaration-indentation)
 
 (defun dc/minify-js-buffer-contents()
   "Minifies the buffer contents by removing whitespaces."

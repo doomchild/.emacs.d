@@ -29,16 +29,6 @@
 (use-package hlinum
   :config (hlinum-activate))
 
-(use-package indy
-  :ensure t
-  :config
-  (setq indy-rules '(
-                     (js2-mode . ((and (indy--current 'indy--starts-with ".")
-                                       (not (indy--prev 'indy-starts-with "." )))
-                                  (indy--prev-tab 1)))
-                     )
-        ))
-
 (use-package linum
   :config
   (setq linum-format " %3d ")
