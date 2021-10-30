@@ -3,7 +3,7 @@
 
 (use-package csharp-mode
   :demand t
-  :mode "\\.cs$"
+  :mode "\\.cs\\'"
   :config
   (add-hook 'csharp-mode-hook #'lsp))
 
