@@ -112,9 +112,6 @@ statement spanning multiple lines; otherwise, return nil."
           ((js--ctrl-statement-indentation))
           ((js--multi-line-declaration-indentation))
           ((nth 1 parse-status)
-	   ;; A single closing paren/bracket should be indented at the
-	   ;; same level as the opening statement. Same goes for
-	   ;; "case" and "default".
            (let ((same-indent-p (looking-at "[]})]"))
                  (switch-keyword-p (looking-at "default\\_>\\|case\\_>[^:]"))
                  (continued-expr-p (js--continued-expression-p))
