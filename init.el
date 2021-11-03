@@ -28,6 +28,7 @@
 (require 'module-lisp)
 (require 'module-markdown)
 (require 'module-python)
+(require 'module-typescript)
 (require 'module-yaml)
 (require 'module-xml)
 
