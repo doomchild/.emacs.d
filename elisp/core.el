@@ -2,8 +2,13 @@
 ;;; core settings
 
 (defconst private-directory (expand-file-name "private" user-emacs-directory))
-(defconst temporary-directory (format "%s/temp" private-directory)
-  "Hostname-based elisp temp directory")
+(defconst temporary-directory (expand-file-name "temp" private-directory))
+
+(unless (file-directory-p private-directory)
+  (make-directory private-directory))
+
+(unless (file-directory-p temporary-directory)
+  (make-directory temporary-directory))
 
 ;;; Core settings
 ;;; UTF-8 or bust
