@@ -18,7 +18,7 @@
 (require 'core-company)
 (require 'core-flycheck)
 (require 'module-elisp)
-(require 'module-c++)
+;(require 'module-c++)
 (require 'module-cloudformation)
 (require 'module-csharp)
 (require 'module-docker)
