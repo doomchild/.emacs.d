@@ -52,6 +52,7 @@
 
 (defun dc/typescript-hook ()
   (company-mode)
+  (semantic-mode)
   (electric-pair-mode 1)
   (editorconfig-mode 1)
   (editorconfig-apply)
