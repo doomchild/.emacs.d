@@ -36,7 +36,9 @@
 
 (use-package lsp-mode
   :config
-  (setq lsp-session-file (format "%s/lsp-session" temporary-directory)))
+  (setq
+   lsp-server-install-dir "~/.emacs.d/private/lsp"
+   lsp-session-file (format "%s/lsp-session" temporary-directory)))
 
 (use-package lsp-ui)
 
