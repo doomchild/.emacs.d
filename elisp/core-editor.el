@@ -42,6 +42,8 @@
 
 (use-package lsp-ui)
 
+(use-package magit)
+
 (use-package origami
   :bind (:map origami-mode-map
 	      ("C-; C-o t" . origami-recursively-toggle-node)
