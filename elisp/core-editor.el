@@ -13,6 +13,10 @@
 (require 're-builder)
 (setq reb-re-syntax 'string)
 
+(setq-default display-fill-column-indicator-column 120)
+
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
 (use-package editorconfig
   :mode ("\\.?editorconfig$" . editorconfig-conf-mode)
   :config
