@@ -41,8 +41,11 @@
 (use-package lsp-mode
   :config
   (setq
+   lsp-keep-workspace-alive nil
    lsp-server-install-dir "~/.emacs.d/private/lsp"
-   lsp-session-file (format "%s/lsp-session" temporary-directory)))
+   lsp-session-file (format "%s/lsp-session" temporary-directory)
+   lsp-disabled-client '(eslint)
+   lsp-prefer-capf t))
 
 (use-package lsp-ui)
 
