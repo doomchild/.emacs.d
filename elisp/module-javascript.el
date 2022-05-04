@@ -27,10 +27,10 @@
 
 (defun dc/js2-mode-hook ()
   (add-hook 'js-mode-hook #'add-node-modules-path)
-  (js2-refactor-mode)
+  (js2-refactor-mode 1)
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
-  (company-mode)
-  (semantic-mode)
+  (company-mode 1)
+  (semantic-mode 1)
   (electric-pair-mode)
   (editorconfig-mode 1)
   (editorconfig-apply)
