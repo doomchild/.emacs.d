@@ -27,3 +27,4 @@ custom.el
 tramp
 semanticdb
 url/
+transient/
