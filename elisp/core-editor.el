@@ -73,9 +73,19 @@
   :config (setq rainbow-delimiters-max-face-count 3))
 
 (use-package treemacs
+    :bind
+  (:map global-map
+        ("C-; C-t t" . treemacs)
+        ("C-; C-t 0" . treemacs-select-window)
+        ("C-; C-t C-f" . treemacs-find-file))
   :custom
   (treemacs-git-mode 'deferred)
-  (treemacs-persist-file (expand-file-name "treemacs-persist" private-directory)))
+  (treemacs-persist-file (expand-file-name "treemacs-persist" private-directory))
+  (treemacs-hide-gitignored-files-mode nil))
+
+(use-package treemacs-projectile
+    :after (treemacs projectile)
+    :ensure t)
 
 ;; These functions were shamelessly ripped from DOOM Emacs
 (defun dc/yas-goto-start-of-field ()
