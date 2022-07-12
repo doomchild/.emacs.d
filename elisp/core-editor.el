@@ -79,6 +79,7 @@
         ("C-; C-t 0" . treemacs-select-window)
         ("C-; C-t C-f" . treemacs-find-file))
   :custom
+  (treemacs-width 50)
   (treemacs-git-mode 'deferred)
   (treemacs-persist-file (expand-file-name "treemacs-persist" private-directory))
   (treemacs-hide-gitignored-files-mode nil))
