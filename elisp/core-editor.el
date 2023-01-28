@@ -40,6 +40,8 @@
 
 (use-package lsp-mode
   :config
+  (push "[/\\\\]\\node_modules\\'" lsp-file-watch-ignored-directories)
+  (push "[/\\\\]\\.npm.local\\'" lsp-file-watch-ignored-directories)
   (setq
    lsp-keep-workspace-alive nil
    lsp-server-install-dir "~/.emacs.d/private/lsp"
