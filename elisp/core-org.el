@@ -9,4 +9,15 @@
   :ensure t
   :after org)
 
+(use-package org-roam
+  :ensure t
+  :after org
+  :custom
+  (org-roam-directory "~/org-roam")
+  :bind (("C-; n l" . org-roam-buffer-toggle)
+         ("C-; n f" . org-roam-node-find)
+         ("C-; n i" . org-roam-node-insert))
+  :config
+  (org-roam-setup))
+
 (provide 'core-org)
