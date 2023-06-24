@@ -4,6 +4,7 @@
 *.fas
 *.dat
 *.eld
+*.eln
 
 # Packaging
 .cask
