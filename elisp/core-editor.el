@@ -30,13 +30,8 @@
    (yaml-mode . highlight-indentation-mode)
    (yaml-mode . highlight-indentation-current-column-mode)))
 
-(use-package hlinum
-  :config (hlinum-activate))
-
-(use-package linum
-  :config
-  (setq linum-format " %3d ")
-  (global-linum-mode nil))
+(when  (version<= "26.0.50" emacs-version)
+  (global-display-line-numbers-mode))
 
 (use-package lsp-mode
   :config
