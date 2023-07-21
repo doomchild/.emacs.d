@@ -30,7 +30,7 @@
    (yaml-mode . highlight-indentation-mode)
    (yaml-mode . highlight-indentation-current-column-mode)))
 
-(when  (version<= "26.0.50" emacs-version)
+(when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 
 (use-package lsp-mode
