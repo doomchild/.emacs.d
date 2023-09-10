@@ -1,21 +1,30 @@
 ;;; -*- lexical-binding: t; -*-
 ;;; C#
 
-(when (version<= emacs-version "29")
-  (defun dc/csharp-mode-hook ()
-    (editorconfig-mode 1)
-    (editorconfig-apply)
-    (lsp))
+(defvar dc/omnisharp-root-directory (format "%s/lsp/omnisharp-roslyn" private-directory))
 
-  (use-package csharp-mode
-    :demand t
-    :mode "\\.cs\\'"
-    :after company
-    :config
-    (add-hook 'dc/csharp-mode-hook #'lsp)
+(if (version<= emacs-version "29")
+    (progn
+      (defun dc/csharp-mode-hook ()
+        (editorconfig-mode 1)
+        (editorconfig-apply)
+        (lsp))
 
-    (setq
-     lsp-csharp-omnisharp-roslyn-server-dir (format "%s/lsp/omnisharp-roslyn/latest/omnisharp-roslyn" private-directory)
-     lsp-csharp-omnisharp-roslyn-binary-path (format "%s/OmniSharp" lsp-csharp-omnisharp-roslyn-server-dir))))
+      (use-package csharp-mode
+        :demand t
+        :mode "\\.cs\\'"
+        :after company
+        :config
+        (add-hook 'dc/csharp-mode-hook #'lsp)
+
+        (setq
+         lsp-csharp-omnisharp-roslyn-server-dir dc/omnisharp-root-directory
+         lsp-csharp-omnisharp-roslyn-binary-path (format "%s/OmniSharp" dc/omnisharp-root-directory))))
+  (progn
+    (with-eval-after-load 'eglot
+      (let ((omnisharp-program-path (format "%s/OmniSharp" dc/omnisharp-root-directory)))
+        (add-to-list 'eglot-server-programs `(csharp-mode . ,(format "%s/lsp/omnisharp-roslyn/Omnisharp" private-directory) "-lsp" "-stdio"))
+      )))
+  )
 
 (provide 'module-csharp)
