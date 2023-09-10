@@ -23,6 +23,9 @@
   (setq editorconfig-exec-path "/usr/local/bin/editorconfig")
   (editorconfig-mode 1))
 
+(when (and (version<= "29" emacs-version) (not (package-installed-p 'eglot)))
+  (eglot-update))
+
 (use-package highlight-indentation
   :hook
   ((python-mode . highlight-indentation-mode)
@@ -32,19 +35,6 @@
 
 (when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
-
-(use-package lsp-mode
-  :config
-  (push "[/\\\\]\\node_modules\\'" lsp-file-watch-ignored-directories)
-  (push "[/\\\\]\\.npm.local\\'" lsp-file-watch-ignored-directories)
-  (setq
-   lsp-keep-workspace-alive nil
-   lsp-server-install-dir "~/.emacs.d/private/lsp"
-   lsp-session-file (format "%s/lsp-session" temporary-directory)
-   lsp-disabled-client '(eslint)
-   lsp-prefer-capf t))
-
-(use-package lsp-ui)
 
 (use-package magit)
 
