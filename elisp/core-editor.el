@@ -75,6 +75,15 @@
     :after (treemacs projectile)
     :ensure t)
 
+(use-package tree-sitter
+  :ensure t
+  :custom
+  (global-tree-sitter-mode))
+
+(use-package tree-sitter-langs
+  :ensure t
+  :after (tree-sitter))
+
 ;; These functions were shamelessly ripped from DOOM Emacs
 (defun dc/yas-goto-start-of-field ()
   "Go to the beginning of a field"
