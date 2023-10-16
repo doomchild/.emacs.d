@@ -23,6 +23,7 @@
 (require 'module-csharp)
 (require 'module-docker)
 (require 'module-env)
+(require 'module-godot)
 (require 'module-html)
 (require 'module-javascript)
 (require 'module-lisp)
