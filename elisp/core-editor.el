@@ -36,7 +36,8 @@
 (when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 
-(use-package magit)
+(use-package magit
+  :config (setq-default with-editor-emacsclient-executable (dc/shell-command-to-string "which emacsclient")))
 
 (use-package origami
   :bind (:map origami-mode-map
