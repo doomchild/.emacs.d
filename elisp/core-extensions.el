@@ -14,7 +14,6 @@
             avy-background t))
 
 (use-package awscli-capf
-  :ensure t
   :commands (awscli-capf-add)
   :hook ((sh-mode . awscli-capf-add)
           (shell-mode . awscli-capf-add)))
@@ -65,6 +64,8 @@
 (global-set-key (kbd "C-&") 'swiper-mc)
 
 (use-package popup-kill-ring
-  :bind ("M-y" . popup-kill-ring))
+  :straight (popup-kill-ring :type git :host github :repo "doomchild/popup-kill-ring" :branch "support-emacs-29")
+  :bind ("M-y" . popup-kill-ring)
+  :custom (setq popup-kill-ring-interactive-insert t))
 
 (provide 'core-extensions)
