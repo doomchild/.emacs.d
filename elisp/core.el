@@ -56,4 +56,10 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(defun dc/shell-command-to-string (&rest cmd)
+  (replace-regexp-in-string
+   "\r?\n$"
+   ""
+   (shell-command-to-string (mapconcat 'identity cmd " "))))
+
 (provide 'core)

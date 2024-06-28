@@ -1,11 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
-;;; Flycheck=
-
-(defun dc/shell-command-to-string (&rest cmd)
-  (replace-regexp-in-string
-   "\r?\n$"
-   ""
-   (shell-command-to-string (mapconcat 'identity cmd " "))))
+;;; Flycheck
 
 (use-package flycheck
   :demand t
