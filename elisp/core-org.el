@@ -3,7 +3,12 @@
 
 (use-package org
   :ensure t
-  :config (add-hook 'yas-minor-mode-on org-mode-hook))
+  :init
+  (add-hook 'org-mode-hook #'yas-minor-mode-on)
+  (add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
+  :config
+  (setq org-edit-src-content-indentation 0)
+  (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
 
 (use-package org-jira
   :ensure t
