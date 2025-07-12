@@ -23,8 +23,8 @@
   (progn
     (defun dc/csharp-mode-hook ()
       (editorconfig-mode 1)
-      (editorconfig-apply)
-      (tree-sitter-hl-mode))
+      (editorconfig-apply))
+      ;;(tree-sitter-hl-mode))
 
     (add-hook 'csharp-mode-hook #'dc/csharp-mode-hook)
 

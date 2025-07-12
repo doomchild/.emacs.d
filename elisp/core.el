@@ -62,4 +62,18 @@
    ""
    (shell-command-to-string (mapconcat 'identity cmd " "))))
 
+(defun dc/get-line-count ()
+  (interactive)
+  (let ((line-count-text (count-lines-page)))
+    (string-match "[[:digit:]]+" line-count-text)
+    (string-to-number (match-string 0 line-count-text))))
+
+(defun dc/squash-to-single-line ()
+  (interactive)
+  (beginning-of-buffer)
+  (let ((line-count (dc/get-line-count)))
+        (dotimes (i (1- line-count))
+          (delete-indentation t)
+          (delete-char 1))))
+
 (provide 'core)

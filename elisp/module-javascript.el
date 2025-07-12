@@ -33,8 +33,7 @@
   (semantic-mode 1)
   (electric-pair-mode)
   (editorconfig-mode 1)
-  (editorconfig-apply)
-  (lsp))
+  (editorconfig-apply))
 
 (use-package js2-mode
   :mode "\\.js\\'"
@@ -50,11 +49,11 @@
   (setq js-switch-indent-offset 2)
   (setq js2-basic-offset 2)
   (setq js2-bounce-indent-p t)
-  (setq lsp-eslint-unzipped-path "~/.emacs.d/private/lsp/eslint")
-  (setq lsp-eslint-node (string-trim (shell-command-to-string "which node")))
-  (setq lsp-eslint-runtime (string-trim (shell-command-to-string "which node")))
-  (setq lsp-eslint-server-command (list "node" (expand-file-name "~/.emacs.d/private/lsp/eslint/extension/server/out/eslintServer.js") "--stdio"))
-  (setq lsp-eslint-library-choices-file (format "%s/.lsp-eslint-choices" temporary-directory))
+  ;; (setq lsp-eslint-unzipped-path "~/.emacs.d/private/lsp/eslint")
+  ;; (setq lsp-eslint-node (string-trim (shell-command-to-string "which node")))
+  ;; (setq lsp-eslint-runtime (string-trim (shell-command-to-string "which node")))
+  ;; (setq lsp-eslint-server-command (list "node" (expand-file-name "~/.emacs.d/private/lsp/eslint/extension/server/out/eslintServer.js") "--stdio"))
+  ;; (setq lsp-eslint-library-choices-file (format "%s/.lsp-eslint-choices" temporary-directory))
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   (add-hook 'js2-mode-hook #'dc/js2-mode-hook))
 

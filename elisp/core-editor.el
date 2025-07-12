@@ -76,14 +76,11 @@
     :after (treemacs projectile)
     :ensure t)
 
-(use-package tree-sitter
+(use-package treesit-auto
   :ensure t
-  :custom
-  (global-tree-sitter-mode))
-
-(use-package tree-sitter-langs
-  :ensure t
-  :after (tree-sitter))
+  :config
+  (setq treesit-auto-install 'prompt)
+  (global-treesit-auto-mode))
 
 ;; These functions were shamelessly ripped from DOOM Emacs
 (defun dc/yas-goto-start-of-field ()
