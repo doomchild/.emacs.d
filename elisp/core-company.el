@@ -41,6 +41,7 @@ inserted."
   (setq company-backends (delete 'company-semantic company-backends))
   (add-to-list 'company-backends 'company-c-headers)
   (add-hook 'csharp-mode-hook 'company-mode)
+  (add-hook 'csharp-ts-mode-hook 'company-mode)
   (add-hook 'c-mode-common-hook 'company-mode))
 
 (provide 'core-company)
