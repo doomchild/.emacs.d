@@ -26,6 +26,10 @@
 (when (and (version<= "29" emacs-version) (not (package-installed-p 'eglot)))
   (eglot-update))
 
+(use-package eldoc-box
+  :ensure t
+  :hook (eldoc-mode . eldoc-box-hover-at-point-mode))
+
 (use-package highlight-indentation
   :hook
   ((python-mode . highlight-indentation-mode)
