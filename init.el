@@ -26,9 +26,7 @@
 (require 'module-javascript)
 ;(require 'module-lisp)
 (require 'module-markdown)
-(require 'module-python)
 (require 'module-typescript)
-(require 'module-yaml)
 (require 'module-xml)
 
 (if (file-readable-p (concat user-emacs-directory (file-name-as-directory "private") "private.el"))

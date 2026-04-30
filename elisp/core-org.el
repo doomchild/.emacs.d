@@ -10,10 +10,6 @@
   (setq org-edit-src-content-indentation 0)
   (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
 
-(use-package org-jira
-  :ensure t
-  :after org)
-
 (use-package org-roam
   :ensure t
   :after org

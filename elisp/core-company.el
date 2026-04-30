@@ -24,11 +24,6 @@ inserted."
   (company-abort)
   (insert " "))
 
-(use-package company-c-headers
-  :demand t
-  :config
-  (add-to-list 'company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/4.2.1"))
-
 (use-package company
   :bind (:map company-active-map
           ("C-n" . company-select-next)
